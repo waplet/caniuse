@@ -16,7 +16,7 @@ let features = process.argv.slice(2);
 
 let supports = [];
 features.forEach((feature) => {
-    try {   
+    try {
         supports.push({
             feature: feature,
             browserSupport: caniuse.getSupport(feature)
@@ -27,9 +27,7 @@ features.forEach((feature) => {
     }
 });
 
-supports.forEach((support) => {
-    processSupport(support);
-})
+supports.forEach((support) => processSupport(support));
 
 function processSupport(support) {
     console.log("#############");
