@@ -24,6 +24,11 @@ features.forEach((feature) => {
     } catch (e) {
         console.log(e.message);
         // skipping
+
+        let foundFeatures = caniuse.find(feature);
+        if (foundFeatures.length) {
+            console.log("Try one of: ", foundFeatures.join(" ,"));
+        }
     }
 });
 
@@ -32,6 +37,7 @@ supports.forEach((support) => processSupport(support));
 function processSupport(support) {
     console.log("#############");
     console.log("Feature: ", support.feature);
+    console.log("Features found for \"" + support.feature + "\" are: ", caniuse.find(support.feature).join(", "));
     console.log("Is fully supported: ", isFullySupported(support.browserSupport) ? 'Yes' : 'No');
     if (!isFullySupported(support.browserSupport)) {
         console.log("Unsupported browsers: ", getUnsupportedBrowsers(support.browserSupport).join(', '));
