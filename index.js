@@ -14,7 +14,7 @@ if (process.argv.length < 3) {
 let features = process.argv.slice(2);
 // console.log(features);
 
-var supports = [];
+let supports = [];
 features.forEach((feature) => {
     try {   
         supports.push({
